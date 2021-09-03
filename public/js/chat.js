@@ -40,7 +40,7 @@ const autoscroll = () => {
 }
 
 socket.on('message',(msg) => {
-    console.log(msg)
+    // console.log(msg)
     const html = Mustache.render($messageTemplate,{
         'message' : msg.text,
         'createdAt' : moment(msg.createdAt).format('h:mm a'),
@@ -51,7 +51,7 @@ socket.on('message',(msg) => {
 })
 
 socket.on('locationMessage',(location)=> {
-    console.log(location)
+    // console.log(location)
     const html = Mustache.render($locationTemplate,{
         'location' : location.url,
         'createdAt' : moment(location.createdAt).format('h:mm a'),
@@ -63,8 +63,6 @@ socket.on('locationMessage',(location)=> {
 
 $form.addEventListener('submit',(e) => {
     e.preventDefault()
-
-
     $inputBtn.setAttribute('disabled','disabled')
 
     e.target.elements
